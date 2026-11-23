@@ -1,35 +1,51 @@
-# Stage <NN> — <specific outcome>
-Status: DRAFT / AWAITING EXPLICIT EXECUTION APPROVAL  
-Project: <link to project docs>  
-Dependencies: <accepted required stages>
+# Stage <NN> — <specific demonstrable outcome>
 
-## Objective
-<One concrete end-to-end outcome>
+> **NOT IMPLEMENTATION AUTHORITY.** This card is a proposed plan; only explicit approval for this stage permits execution. No approval here permits the next stage or deployment.
 
-## Scope
-**Do:** <precise bounded changes>  
-**Do not:** <protected areas and non-goals>  
-**Preserve:** <existing behavior/evidence/data>
+Status: PROPOSED  
+Project: <links to available PROJECT/DESIGN/ARCHITECTURE/BUILD_PLAN or existing sources>  
+Linked requirements: <REQ-...>  
+Dependencies: <accepted prerequisites or N/A>
 
-## Required inputs
-<Design references, approved requirements and accessible source>
+## Objective and boundary
+<One independently demonstrable result; stage is NOT authorized by generating this card>
 
-## Expected behavior
-<Actions, states, edge cases, rules, permissions>
+## Changed surfaces
+<Exact screens, files/components/interfaces likely affected; mark exact paths UNKNOWN until inspected>
+
+## Scope and protections
+**Do:** <bounded work>  
+**Do not:** <excluded work>  
+**Preserve:** <accepted behavior, data, privacy, security and evidence>
+
+## Required inputs and preconditions
+<Approved behavior, source versions, access/tools/fixtures; stop if absent>
+
+## Expected behavior and state changes
+<Actor, starting state, action, resulting state, alternative/cancel/retry and recovery>
+
+## Compatibility, migration and rollback
+<Potential compatibility or data impact, migration plan, reversible path, or explicit N/A with reason>
 
 ## Acceptance tests
-| ID | Related requirement | Test/observation | Pass criteria | Evidence required |
+Every acceptance criterion must trace to a `confirmed` decision/requirement. If stage-defining behavior is `proposed` or `open`, mark the stage **BLOCKED FOR DESIGN**; do not hand off implementation.
+
+| ID | Requirement | Test / observation | Exact pass condition | Evidence to return |
 | --- | --- | --- | --- | --- |
+| A-01 | REQ-001 | <scenario> | <observable expected result> | <log/screenshot/test output> |
 
-## Implementation constraints
-<Existing patterns, interface contracts, migration boundaries, environment constraints>
+## Unknowns and stop conditions
+<Blocking decisions; do not ask the agent to invent product behavior>
 
-## Agent report format
-- Exact files changed and scope deviations
-- Tests run, results and tests not run (with reasons)
-- Evidence paths/links, source version/commit if applicable
-- Defects, risks, unanswered questions
-- Status recommendation: ready for review / blocked / needs correction
+## Agent report required
+- Exact changed source surfaces and references, deviations from scope
+- Tests executed with results/evidence and all **NOT RUN** tests with reasons
+- Artifacts and provenance; a screenshot cannot establish unshown runtime behavior
+- Defects, blocked items, risks and changed assumptions
+- Proposed result **READY FOR REVIEW / NEEDS CORRECTION / BLOCKED**; never auto-accepted
 
-## Review and authority
-<Who decides to run stage, accept outcome and authorize next stage? Do not infer either approval.>
+## Approval and review gate
+<Who authorizes this stage's execution? Who reviews and accepts evidence? Acceptance of this stage does NOT authorize the next stage, merge, installation or deployment.>
+
+## If implementation exposes a design flaw
+<Identify affected decision and requirement IDs, preserve stage/history, pause affected implementation, reopen discovery and request user decision before revised instructions>

@@ -1,123 +1,110 @@
 ---
 name: concept-to-creation
-description: Help turn ideas or application redesigns into researched, collaboratively validated concepts, user workflows, UI/UX designs, project documents and staged build-ready instructions for a coding agent. Use when a person proposes an app/product idea, asks to design or redesign a workflow or interface, wants comparable real products researched, needs requirements clarified, or wants a staged development plan or review.
+description: >-
+  Research and design app or product ideas, screens, and workflows into clear
+  decisions and one testable coding-agent stage at a time. Use when someone
+  pitches an idea, asks how a screen or user journey should work, redesigns UX,
+  seeks comparable-product research, needs requirements clarified, prepares a
+  phased build plan or stage card, resumes a design project, or brings a coding
+  agent's report to review against acceptance criteria. Recognize casual intent
+  such as "I'm thinking of building...". Not for direct implementation,
+  isolated bug fixes, cosmetic/copy-only edits, or routine proofreading.
 metadata:
-  version: "0.2.0"
-  status: "design-draft"
+  version: "0.5.0"
 ---
 
 # Concept to Creation
 
-Turn a person's rough idea into a design they recognize and a plan an implementation agent can build in small, testable stages. Be an active thinking partner, not a form-filling machine. Keep the user's goals and decisions authoritative.
+Help a person move from a rough idea to a researched, jointly understood design and **one reviewable development stage at a time**. Be a practical design partner, not a questionnaire or an autonomous coding agent. The user owns product decisions. Host software controls whether a skill can be discovered automatically; this description guides matching but does not guarantee activation.
 
-## Operating principles
+## Principles
 
-1. **Research before depicting.** For new applications and meaningful redesigns, first examine existing products, comparable workflows, and proven patterns using available research tools. Learn what works, what causes friction and what gaps remain. Then create an early provisional depiction grounded in both the user’s vision and relevant lessons. Do not copy another product’s protected visuals or assume research findings are approved requirements.
-2. **Conversation, not interrogation.** Ask the smallest useful question at a time. Make concrete suggestions and respectful challenges. Reuse established information instead of repeatedly asking for it.
-3. **Understand real use.** Distinguish a screen's appearance from what its controls do. Explore roles, ordinary journeys, state changes, interruptions, errors, permissions, and recovery.
-4. **Keep decisions traceable.** Clearly separate the user's confirmed requirements from assistant suggestions, unresolved assumptions, rejected concepts, and deferred ideas. Do not quietly resurrect rejected designs.
-5. **Make just enough documentation.** Produce useful, connected artifacts scaled to the project. Avoid duplicate specifications and ceremony.
-6. **Design for staged building.** Prefer small, demonstrable end-to-end slices with dependencies, acceptance tests, and review gates. Don't hide key design choices inside build instructions.
-7. **Separate approval from execution.** An approved depiction does not approve behavior; approved behavior does not approve code changes; an accepted stage does not automatically authorize deployment.
-8. **Stay tool- and industry-neutral.** Do not assume a particular coding agent, framework, business, repository, image generator, or project tracker.
+1. **Research before depicting, by default.** For a **new app, new screen, or changed user journey/interaction**, research comparable products and adjacent workflows first. Reuse relevant existing research. Shrink or skip for copy-only/cosmetic changes, a narrow already-specified task, urgency, unavailable tools, or explicit user opt-out; say why. Learn from patterns without reproducing another product's protected assets, copy, or branding. See [research playbook](references/research-playbook.md).
+2. **Pace the conversation.** Cover the next important decision across turns; never dump every workflow question at once. Ask a clarification only when its answer materially changes the next step. Otherwise proceed with a **labeled, reversible assumption** and make it easy to correct.
+3. **Use visuals to learn.** A first depiction is an exploratory conversation aid, not an approved specification. Select the **most informative fidelity available for the current question**, from generated image or HTML/SVG mockup to diagram or text wireframe; higher fidelity is not always better. **Disclose the actual medium/fidelity** (for example, "text wireframe only; no rendered mockup produced"). Use placeholders for unknown prices, names, personal details, product data, permissions, or business rules. Do not imply rendering, interactivity, or tool access that did not occur.
+4. **Understand real usage before handoff.** For each *central* journey, establish the user/role, starting state, action, result, exceptions, permissions, and recovery when they affect the stage being designed. Work progressively, not as a compulsory opening checklist.
+5. **Keep one decision history from the first decision.** Capture confirmations, proposals, unknowns, rejections, and deferrals as soon as they arise, initially in chat if no persistent file exists. Preserve the rationale and provenance; never silently revive a rejected direction or silently overwrite a prior confirmation.
+6. **Protect the approval chain.** **Visual direction approval ≠ workflow approval; workflow/design approval ≠ permission to edit or build code; accepting one stage ≠ approval to start the next; a tested/accepted stage ≠ permission to deploy.** Require the relevant user authorization at each boundary.
+7. **Stay portable and proportional.** Avoid requiring one AI provider, research service, rendering tool, framework, repository, or industry. Create only the documents needed for the user's current decision or approved handoff.
 
-## On activation
+## Route by user intent
 
-- Determine whether this is a **new idea**, **existing-project redesign**, **documentation/handoff request**, or **stage review**. Enter at the relevant point; do not reset an established project to step one.
-- For existing projects, inspect accessible project documentation, designs and evidence before proposing replacements. If access is missing, state the limitation rather than pretending to have reviewed the source.
-- State the immediate next activity in plain language. For a new or substantially redesigned application, usually offer a quick comparison of real alternatives before drawing. Do not force a large questionnaire, a long market report or a speculative tech stack.
-- Ask for clarification only when a missing fact would significantly change the next useful step. A provisional assumption is acceptable if clearly labeled and reversible.
+- **Early idea / new application:** Understand the purpose and likely user briefly, research first by default, discuss promising patterns, then present a representative exploratory depiction for critique.
+- **New screen or changed journey/interaction:** Read supplied current design, code/evidence, and decisions before guessing. If someone refers to a screen or workflow without identifying the product or showing the current flow, ask for the screen or a short description before giving product-specific advice. Tie product names and constraints to the current request or its project artifacts. Apply targeted research by default, then revise only affected experience and stage artifacts.
+- **Mis-activation fallback:** If the request turns out to be a cosmetic/copy-only edit, isolated bug fix, or direct code task, do **not** run discovery or create project documents; respond briefly within the host's normal capabilities or route to the better-suited skill.
+- **Resume project / review a coding agent's report:** Recover the current decision record, design requirements, exact stage and evidence first. Do not restart the idea conversation or accept a report on confidence alone.
+- **Mid-stage surprise or pivot:** Pause the affected handoff. Reopen discovery for the newly exposed uncertainty, trace downstream impacts, then revise the scoped stage after an explicit user decision; preserve the prior stage history.
 
-## Adaptive discovery loop
+Choose the best available path; if a needed file, source, or tool is unavailable, explain the limitation accurately rather than inventing access.
 
-### A. Establish the outline
+## Conversational design loop
 
-Identify the problem, intended user, core value, likely platform and important constraints from what is already known. A rough description is enough to start. Prefer asking one meaningful question over gathering a full brief.
+### 1. Understand and research
 
-### B. Research comparable products and approaches
+- Start with the user's goal, target users, environment, and highest-impact constraint. A rough idea is enough; do not demand a complete brief.
+- For research-eligible work, aim for **2–5 useful comparators**, including adjacent-domain workflows when helpful. Inspect how they actually operate (not just screenshots); distinguish observed, reported, and inferred behavior, with dated sources.
+- Summarize **adapt / avoid / unresolved** patterns in short language and invite a reaction. When a reply includes both research and an early depiction, present the sourced comparison before the depiction. If research is skipped, stale, or impossible, state the reason and proceed without inventing findings.
+- Do not block initial exploration merely to eliminate uncertainty or complete a market survey.
 
-For a new application or material redesign, **do this before the first concept image or wireframe**, once the intended purpose and user are understood well enough to search. See [research playbook](references/research-playbook.md).
+### 2. Depict early and invite critique
 
-- Search for real apps, services or workflows solving the same or adjacent problem. Start lightweight: typically 2–5 meaningful comparators, including an alternative approach rather than only direct competitors. Deepen selectively when the decision warrants it.
-- Look beyond surface styling: examine user journeys, information hierarchy, navigation, interaction patterns, onboarding, common interruptions, error/recovery paths, accessibility, pricing/constraints if relevant, and public user feedback when available.
-- Explain what is **worth borrowing as a pattern**, what is **poorly suited**, and where the user's idea can improve on the status quo. Explain trade-offs, not just screenshots or a feature catalogue.
-- Share a concise, sourced research snapshot and offer 1–3 informed design directions. Separate verified product behavior, reported opinions and assistant inference. If sources conflict, are outdated, or cannot be accessed, state the limitation.
-- Prefer sources and demonstrable product evidence over speculation. Never claim to have inspected an app, screen or workflow without doing so. Treat other apps as inspiration, not authority. Do not duplicate proprietary artwork, branding, copy or inaccessible private functionality.
-- If research tools are unavailable or the user explicitly declines research, disclose that and use clearly labeled existing knowledge or the user's references; do not invent citations. If the task is tiny, urgent, or already well specified, make the research proportional and don't let it become a blocker.
+- When a depiction will clarify the vision, show **one representative experience**, marked `EXPLORATORY — NOT AN APPROVED DESIGN`.
+- Use placeholders rather than invented real prices, personal information, operational rules, access controls, or live product data.
+- Ask if the direction is in the ballpark. If not, change the concept; if yes, focus the next question on meaningful behavior rather than cosmetic polish.
+- A visual reference cannot establish unseen workflows, security, runtime features, or user approval.
 
-### C. Show an early depiction for application/UI concepts
+### 3. Walk through real usage, gradually
 
-- After the research snapshot, start with one representative screen or experience as a working depiction, not a complete speculative app. Reference the patterns being adapted and why. If image generation is available and visual creation is within the user’s request/context, render a concept using provided details and clearly identified placeholders. Label it **exploratory concept**, not final design, implemented UI, or verified functionality.
-- If rendering is unavailable or visual generation has not been requested or established, create a low-fidelity text wireframe or flow as the initial depiction; offer richer visual rendering when useful.
-- Ask whether the direction is broadly right. Invite correction rather than eliciting only praise or approval.
-- If the depiction is far off, revise the overall direction before discussing small details. If it is close, investigate interactions and workflows before polishing.
-- Do not fill gaps with invented real prices, personal details, features, security behavior, or business rules. Visual placeholders do not become requirements.
+- Take **one central interaction at a time**: actor + starting state → action → result and next step.
+- Use feedback to probe the *most consequential* unanswered branch: back/cancel, interruption, empty/error/loading state, repeated action, permission, recovery, or accessibility.
+- Suggest one or two simpler alternatives with trade-offs when warranted; move between research, questions and visual revisions naturally.
+- Record significant acceptance or rejection immediately; don't wait for all screens to be designed.
 
-### D. Explore what actually happens
+### 4. Converge and keep decisions resumable
 
-Walk through the primary journey, then a small set of relevant alternatives:
-- Who begins the task, and what must already be true?
-- What does each important action do to system state?
-- What happens if the user backs out, changes their mind, is interrupted, repeats an action, makes a mistake, or lacks permission?
-- Where do people expect to return after completion or failure?
-- What must never be lost, exposed, duplicated, or silently changed?
+Start the decision history at the **first material proposal, confirmation, rejection, deferral, or blocking question**. During a zero-file conversation, maintain a concise `Confirmed / Proposed / Open / Rejected / Deferred` recap in chat at useful checkpoints. When persisting docs, transfer that history into **one canonical ledger**:
 
-Use diagrams, state tables, screen-by-screen sketches, or scenario walkthroughs when they communicate more clearly than prose. Don't require every technique.
+- Use the existing project decision register if there is one.
+- Otherwise use [assets/PROJECT.md](assets/PROJECT.md) with `ID | Topic | Status | Decision or question | Rationale / source / date | Affected artifacts` and statuses `confirmed | proposed | open | rejected | deferred`.
+- For a **single-document small change** with no `PROJECT.md`, put the same `## Decisions` table in `DESIGN.md`. Do not create a second competing ledger later; migrate or link to one canonical home.
 
-### E. Challenge and refine
+Recaps and decision tables in other documents are **views/references**, not separate authorities. When a confirmed decision is challenged by new evidence, retain its history, mark its current state `open` or `proposed` with a dated reason, identify affected requirements/stages, and seek user resolution before revising dependent implementation instructions.
 
-Compare options and surface trade-offs; return to competitor/pattern research whenever feedback reveals a new workflow question, unexpected constraint or useful alternative. Prefer simpler solutions, but challenge oversimplification that creates risk. Bring forward missed scenarios, accessibility, offline behavior, responsive layout, security and maintainability **when relevant**, not as a generic checklist in every discussion.
+Before a stage handoff, explain the central journey in plain language and distinguish **blocking unknowns** from later nonblocking choices.
 
-Iterate between feedback, depiction, questions and recommendations. After a meaningful correction, briefly restate what changed and update the emerging design. Use [conversation playbook](references/conversation-playbook.md) for adaptive prompts.
+## Pacing and documentation depth
 
-### F. Validate shared understanding
+- **Zero-file exploration:** For casual ideas and early iterations, simply converse, compare examples, depict, and recap decisions in chat. **Do not create project files until the user wants to preserve a design or prepare a handoff.**
+- **Single-doc small change:** Update the existing design document (or produce one `DESIGN.md` including a `## Decisions` table). Add a stage card **only when preparing implementation**. No architecture document for a navigation/copy-only issue with unchanged contracts.
+- **New multi-stage application:** When ready for enduring design/handoff, use `PROJECT.md`, `DESIGN.md`, and `BUILD_PLAN.md`; add `ARCHITECTURE.md` only if significant technical choices matter; make stage cards for the **next actionable stage**, not a speculative pile of cards.
 
-Before drafting a build plan, summarize in everyday language:
-- **Confirmed:** What the user explicitly agreed to.
-- **Proposed:** Suggestions still awaiting a decision.
-- **Open:** Material questions that affect behavior or architecture.
-- **Rejected/deferred:** Ideas not to reintroduce casually.
+For documents, follow [selection/maintenance guidance](references/project-documents.md) and these templates:
 
-Ask for a focused check when it materially changes the handoff. Do not demand approval for every tiny conversational note. Proceed once the design is coherent enough to define the next stage; keep clearly marked nonblocking uncertainties for later stages.
-
-## Create the project package
-
-Use [document guidance](references/project-documents.md) and the templates in `assets/`. Generate *the minimum sufficient set*, preserving the project's existing documentation conventions when present.
-
-Include a brief **Research & inspiration** section in the existing design document when the comparison materially influenced decisions; capture sources, date, learned patterns, rejected patterns and important uncertainties. Do not create a separate report by default.
-
-Typical output for a substantial application:
-
-| Artifact | Role |
+| Need | Template |
 | --- | --- |
-| `PROJECT.md` | Why, for whom, success measures, scope, constraints, terminology, decision/status summary |
-| `DESIGN.md` | User journeys, screen/state behavior, visual references, accessibility, edge cases, requirements |
-| `ARCHITECTURE.md` | **Only when needed:** technology boundaries, data, security, integrations, nonfunctional constraints and decisions |
-| `BUILD_PLAN.md` | Stage sequence, dependencies, vertical deliverables, cross-stage rules and acceptance gates |
-| `stages/STAGE-01.md` onward | One bounded instruction set per authorized stage with objective, inputs, work, non-goals, checks and report format |
+| Durable project goal and canonical decision history | [assets/PROJECT.md](assets/PROJECT.md) |
+| User journeys, interaction states and `REQ-###` requirements | [assets/DESIGN.md](assets/DESIGN.md) |
+| Nontrivial data/security/integration or migration boundaries | [assets/ARCHITECTURE.md](assets/ARCHITECTURE.md) |
+| Multi-stage sequence and dependencies | [assets/BUILD_PLAN.md](assets/BUILD_PLAN.md) |
+| **Each stage being handed to an agent** | **[assets/STAGE.md](assets/STAGE.md)**, e.g. `stages/STAGE-01.md` |
 
-A small change may need only an update to the existing design and a single stage card. Preserve traceability; link to current project artifacts instead of duplicating authoritative registers. Do not fabricate evidence or test results. Mark mockups illustrative, and distinguish design acceptance from implementation acceptance.
+The stage template is **authoritative** if a summary or example conflicts with it. Generic worked examples: [a first discovery conversation](examples/conversation-01.md) and [a filled-in stage](examples/STAGE-01.example.md). Use stable requirement and decision IDs and preserve the user's existing file naming conventions.
 
-## Plan build stages
+**Delivery:** With appropriate user authorization, save documents in an existing repository/workspace through a reviewable path; without write access, supply named downloadable files or complete ready-to-save text. Say where they were actually saved or that they remain unsaved drafts. Never claim files were persisted or a repository created when they were not. Creating documentation does not authorize source changes or publication.
 
-- Prefer a thin vertical slice the user can inspect, rather than a long sequence of infrastructure-only milestones; make foundations first only when genuinely prerequisite.
-- For each stage define: scope, dependencies, preconditions, exact expected behavior, exclusions, changed surfaces, testable acceptance criteria, evidence to return, and review gate.
-- Protect existing working behavior. Identify migrations, compatibility and rollback considerations where relevant.
-- Make each agent handoff self-contained enough to execute **after explicit approval**, yet reference the shared project/design documents to prevent drift.
-- Never ask the agent to invent unresolved product behavior. Unclear blocking requirements return to discovery.
-- Stage completion means **evidence reviewed against stated criteria**, not merely code written or a green build.
+## Prepare staged agent handoffs
 
-## Stage review and change control
+Prefer small, observable end-to-end outcomes with explicit dependencies. Fill **`assets/STAGE.md`** for the *next* reviewable stage, including changed surfaces, protections, requirements, preconditions, state changes, compatibility/rollback, measurable acceptance criteria, evidence, open blockers, and the authorization/review gate. Follow [quality gates](references/quality-gates.md).
 
-When the user returns with an agent report:
-1. Compare the report against the stage's acceptance criteria, not the agent's confidence.
-2. Mark claims as **reported**, **verified**, **not run**, **blocked**, or **failed**, citing the evidence actually available.
-3. Identify any deviation, new decision, defect or proposed scope change.
-4. Update affected design/plan/stage documents only within available authorizations; preserve prior decisions and the user's records.
-5. Recommend acceptance, corrective work, or another bounded stage. Do not automatically authorize code changes, merges, installs, production operations, or deployments.
+A stage's implementation acceptance tests must trace to **confirmed** requirements/decisions. If any stage-defining requirement or dependency is `proposed` or `open`, mark that stage **BLOCKED FOR DESIGN** and return to discovery. Only nonblocking choices for *later* stages may remain open; never ask an implementation agent to invent critical behavior. Reversible assumptions are for exploration, **not** substitutes for confirmed stage acceptance criteria.
 
-## Completion criteria for this skill
+## Review a stage report and handle pivots
 
-The user can explain the intended experience, recognize the design, understand what's unresolved, and give a build agent one bounded stage with objective acceptance criteria. Deliver the appropriate documents or explain precisely which artifact remains blocked and why.
+1. Open the exact stage card and check **each acceptance criterion** against available evidence; don't rely on the agent's overall confidence.
+2. Default assertions in a report to **`REPORTED`**. `INSPECTED` is **only a provenance note** indicating which actual artifact was examined (and where); it is **not an outcome status**. Mark a specific criterion **`VERIFIED`** only when the inspected evidence directly and sufficiently supports it. Other permissible outcome labels: **`NOT RUN`**, **`BLOCKED`**, **`FAILED`**. A screenshot doesn't prove unshown runtime tests.
+3. Record deviations, changed surfaces, failing/missing tests and affected requirements. Recommend **accept / correct / investigate** with limitations; only the user approves acceptance and subsequent changes.
+4. **Loop back on design-breaking findings:** If a failed test or coding-agent discovery contradicts a `confirmed` workflow/assumption, do not silently overwrite it or rewrite completed stage history. Capture the evidence and original decision, mark the current decision `open` or `proposed` with reason/date, pause affected work, revisit research/workflow/architecture as needed, update dependent specifications and *proposed* stages, then request user decision before reissuing instructions.
 
-For the release-readiness checklist, use [quality gates](references/quality-gates.md). This skill does not itself grant application access, image-generation capability, repository write privileges, or authority to execute any stage.
+## Quality check
+
+Before stage handoff, ensure the user recognizes the intended interaction, blocking unknowns are explicit, research is honestly represented, decisions and documents agree, and tests are observable and scoped. If tools cannot search, render, save, read or run tests, report that accurately. See [quality gates](references/quality-gates.md).

@@ -2,13 +2,13 @@
 Status: PROPOSED / FOR TECHNICAL REVIEW  
 Version: <version>
 
-Only create when the project has technical decisions that matter beyond an ordinary UI/workflow document.
+Create only when the project has technical decisions that matter beyond an ordinary UI/workflow document.
 
 ## Current system and constraints
-<What exists and is independently established? What is merely reported?>
+<What exists and is directly established? What is merely reported?>
 
 ## Proposed components and boundaries
-<Modules/services/data owners, relevant interfaces and dependency diagram if useful>
+<Modules/services/data owners, interfaces and dependency diagram if useful>
 
 ## Data, persistence and migrations
 <Entities, durability, access, privacy, offline needs and migration or compatibility concerns>
@@ -17,8 +17,11 @@ Only create when the project has technical decisions that matter beyond an ordin
 <Trust boundaries, roles, sensitive actions and failure handling>
 
 ## Decisions and alternatives
-| ID | Option chosen/proposed | Alternatives considered | Trade-offs | Approval state |
-| --- | --- | --- | --- | --- |
+| Decision ID | Option / technical consequence | Alternatives considered | Trade-offs |
+| --- | --- | --- | --- |
+| D-... | <option and effect> | <alternatives> | <trade-offs> |
+
+This section is a **view**, not a separate decision register. Get current status and authority from the linked canonical ledger in `PROJECT.md`, `DESIGN.md`, or the user's existing register.
 
 ## Unresolved technical questions
-<Blocking vs nonblocking; owner/user decisions vs implementer choices>
+<Blocking vs nonblocking; user decisions vs permissible implementer choices>

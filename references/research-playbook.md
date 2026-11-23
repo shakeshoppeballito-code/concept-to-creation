@@ -1,28 +1,28 @@
-# Research before design — lightweight competitive and pattern reconnaissance
+# Comparable-product and workflow reconnaissance
 
-The purpose of this step is to improve the design conversation, not to produce a marketing report. Apply to new apps and meaningful redesigns **before** creating the initial depiction. Use judgment for small fixes or supplied mature designs.
+This is a design-conversation aid, not a marketing report. Apply the research threshold and explicit skip cases in `SKILL.md`; do not create an independent second rule for when research is mandatory.
 
-## Search strategy
-1. Identify the intended user, job and setting. Search for products serving the same job and for adjacent-domain solutions that handle a similar interaction well.
-2. Shortlist approximately 2–5 useful comparators. Prefer direct evidence from official product demonstrations, documentation and accessible screenshots. Supplement with independent reviews and public user feedback when relevant. Do not assume every app can be installed or trialed.
-3. Investigate **behavior**, not just appearance: main journey, navigation, task speed, forms, defaults, editing/cancel/back, empty/error states, feedback and role/permission distinctions.
-4. Summarize strengths, weaknesses, important trade-offs and gaps in the proposed concept. Distinguish observed/verified information from user reports and your own inference.
-5. Present a short verbal comparison with dated references when possible, then suggest one or two directions to depict. Invite the user to identify what they like or dislike in the examples.
-6. After feedback, return to research only where needed; avoid exhaustive competitor scans or repeatedly asking the user to choose from too many examples.
+## Evidence workflow
+1. Identify intended users and task. Search direct comparators and adjacent-domain products with useful interactions.
+2. Start with approximately 2–5 substantive examples where research is applicable; go deeper only where a design decision warrants it. Prefer current official demonstrations/docs and accessible screenshots, supplemented with independent reviews or user feedback.
+3. Study *behavior*: the primary journey, navigation, information hierarchy, interruptions, edit/cancel/back, permissions, error and recovery states. Avoid treating screenshots as proof of unshown interactions.
+4. Distinguish **observed**, **reported** and **inferred** information with dated sources. Note where the actual application cannot be accessed or tested.
+5. Summarize patterns worth adapting, warnings to avoid, and gaps the new design can solve. Offer one to three directions for the first depiction and ask which seems closest to the user's vision.
+6. If new user feedback changes the problem, optionally return to targeted research instead of launching an exhaustive market scan.
 
-## Suggested compact research snapshot
+## Compact research snapshot
 
-| Product / approach | Relevant pattern | What seems effective | Caution or limitation | Evidence / confidence |
+| Product / approach | Relevant interaction | Useful pattern | Limitation/trade-off | Source/date and evidence level |
 | --- | --- | --- | --- | --- |
-| <Product> | <How the workflow works> | <Potential design lesson> | <Trade-off> | <URL, accessed date; observed/reported/inferred> |
+| <real example> | <journey> | <adaptation> | <caution> | <URL or source, date; observed/reported/inferred> |
 
-**Design directions informed by research:** <1–3 distinct choices, specific to user's vision>.  
-**Not assumed:** <Patterns not validated for this user's context>.  
-**Research gaps:** <Inaccessible product states / unanswered questions>.
+**Possible directions:** <1–3 concise directions>.  
+**Not yet decided:** <choices still owned by user>.  
+**Research limits:** <inaccessible states, missing tools, old sources>.
 
-## Boundaries
-- Reuse ideas and conventions; do not clone distinctive copyrighted imagery, text, brands or proprietary assets.
-- Do not invent app features, prices, benchmarks, screenshots or sources. Don't make fake claims of real user trials.
-- Public references do not require private credentials. Ask before any sensitive or account-changing operation.
-- No research tool? Say so and distinguish remembered examples from verified current findings.
-- Keep the process accessible. One concise comparison is often enough to begin sketching.
+## Limits
+
+- Research tools unavailable? Be transparent. Use user-supplied references or clearly labeled existing knowledge, without fabricated verification/citations.
+- If the user opts out or the task is a narrow tweak, move on without pretending a comparison occurred.
+- Reuse patterns and concepts; do not copy proprietary assets, branding, text or protected designs.
+- Do not access private accounts, install software, or change live data simply to research without relevant permission.

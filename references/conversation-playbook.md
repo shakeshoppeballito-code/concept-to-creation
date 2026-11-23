@@ -1,42 +1,54 @@
 # Conversational discovery playbook
 
-Use selectively, not as a mandatory questionnaire.
+This is a *menu of prompts*, not a questionnaire or a required per-turn script. Use the pacing and research threshold in `SKILL.md`.
 
-## Opening an idea conversation
-- Reflect the purpose in one or two sentences; confirm only consequential unknowns.
-- For an application idea or meaningful redesign, first look up comparable real products and workflows (see `research-playbook.md`). Share the useful patterns and a short, evidenced comparison rather than immediately drawing.
-- Ask which patterns the user likes, dislikes or wants to improve; research should guide rather than constrain their vision.
-- Once this foundation exists, and application visualization is appropriate and requested, show a low-stakes depiction promptly. Prefer one representative experience, not an entire fabricated app.
-- Invite unstructured feedback: "Which parts feel close, and what feels wrong?"
-- When the user rejects a concept, revise direction before polishing micro-details.
+## Start small and progress across turns
 
-## After a positive visual reaction
-Ask behavior questions, not just style questions:
-- "When someone taps this, what should happen next?"
-- "What does this page show when there are no results?"
-- "Who can do this, and who shouldn't?"
-- "Can someone change their mind halfway through?"
-- "What happens if they leave and return later?"
-- "What should happen if this step fails?"
-- "What information must stay visible?"
-- "Which action should be possible in one tap?"
+- First response: reflect the user's objective, add one useful insight, and ask **at most the next consequential question** (or offer a researched comparison if that will help more).
+- Follow-up turns: test one significant assumption or show one relevant visual. Don't ask the user to answer an exhaustive list of states, permissions and errors.
+- If a fact doesn't affect the next move, proceed on a **labeled, reversible assumption** and invite correction. If it affects safety, permissions, money, or irreversible behavior in the *next stage*, clarify before handoff.
+- Don't create project documents in a casual exploration unless the user wants a durable record or development handoff. A short chat recap is sufficient at first.
+
+## Opening a new idea
+
+- Identify the intended user and key task in plain language.
+- For a **new app, new screen, or changed user journey/interaction**, follow `SKILL.md`'s research-first default unless an explicit skip condition applies.
+- Share specific strengths/weaknesses of comparable solutions and invite reaction; consider adjacent industries when the same underlying workflow exists.
+- Then create one representative exploratory concept with the best available medium when a depiction helps. Ask "Which parts are close, and what feels wrong?"
+
+## After a positive reaction to a depiction
+
+Explore the next relevant behavior instead of simply polishing appearance. Example prompts to use selectively:
+
+- "When someone taps this, what happens next?"
+- "What is shown when there is nothing to display?"
+- "Who is allowed to do this?"
+- "What if someone changes their mind partway through?"
+- "What if this action fails or happens twice?"
+- "Which steps could be removed without creating risk?"
+
+Check the key actor, starting state, state transition and outcome as the design matures. Do not ask every example prompt in one turn.
 
 ## Challenge constructively
-- Offer one or two concrete alternatives, not a catalogue of unrelated options.
-- Explain trade-offs as user impact: faster, safer, simpler, more complex, harder to maintain.
-- Ask about an exception when missing it could change the architecture or interface materially.
-- Avoid asking technical implementation questions before behavior is understood unless a hard technical constraint is already known.
 
-## Continuous decision management
-Record each substantial item as:
-`ID | topic | status (confirmed/proposed/open/rejected/deferred) | decision or question | rationale | source/date | affected screens/stages`.
-Status must reflect the user's actual wording; an assistant suggestion is not automatically approved. The decision ledger may live inside an existing project file.
+- Offer one or two specific alternatives with practical trade-offs.
+- Check the user's actual workflow, not what a polished picture seems to promise.
+- Before presenting a revised visual, ensure it shows the requested experience and doesn't resurrect rejected choices or invent data.
 
-## Misunderstanding checks
-- Rephrase the current workflow in plain language after several design iterations.
-- Explicitly distinguish what the mockup depicts from what the software actually does.
-- Check whether a later change makes an earlier screen or requirement inconsistent.
-- Before presenting a visual, compare it to the correct requested screen, selected design direction, known business rules, and prior rejections.
+## Single decision history and resumption
+
+- Begin at the **first meaningful decision**: keep `confirmed / proposed / open / rejected / deferred` notes in conversation until the user requests persistent documentation.
+- Once documents exist, use the **single canonical** decision table in `PROJECT.md` (or existing register). For a one-document change, use `DESIGN.md`'s `## Decisions` table if there is no `PROJECT.md`.
+- Use the exact column names and status vocabulary in `assets/PROJECT.md`. Summaries are *views*, not a second register. Retain rejected options and change history with provenance.
+- For a returning conversation, inspect the current decisions and stage first; do not ask the user to restate known outcomes.
+
+## Pivot when implementation contradicts design
+
+- Record the report or test evidence and the affected `D-###` and `REQ-###` identifiers.
+- Pause only affected stage activity. Preserve previous accepted evidence and the original confirmed decision as history.
+- Mark the current decision `open` or `proposed` with the date and reason; return to targeted discovery/research or workflow design.
+- Revise downstream requirements and proposed stages after a user decision; do not quietly alter an accepted stage or imply new implementation authorization.
 
 ## When to stop discovery
-Proceed to a scoped build-ready stage when the next stage's workflows, rules, boundaries and tests are clear. Leave nonblocking future details in an open-questions section. Do not ask endless aesthetic or speculative questions.
+
+Prepare a stage handoff when the **next stage's** behavior, boundaries, prerequisites, and tests are defined. Leave clearly identified nonblocking choices for later stages. Don't continue asking questions just to eliminate every possible unknown.

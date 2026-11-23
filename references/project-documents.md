@@ -1,24 +1,38 @@
-# Project document selection and rules
+# Project documentation selection and maintenance
 
-## Document selection
+## Pacing: zero files first, structure when it earns its place
 
-**Small feature/fix:** Update the project's current document plus one bounded stage card. No new architecture document unless existing behavior or interfaces change materially.
+| Situation | Default deliverable |
+| --- | --- |
+| Casual idea/early exploration | **Zero files**. Natural discussion, appropriate research, optional early depiction and short in-chat decisions recap. |
+| Small UI/workflow redesign before handoff | **One existing design document**, or `DESIGN.md` with `## Decisions` if no canonical project register exists. |
+| Small redesign ready for an agent | Update design and add **one** `assets/STAGE.md`-based stage card; do not invent `ARCHITECTURE.md` when technical contracts don't change. |
+| New application needing a multi-stage build | `PROJECT.md`, `DESIGN.md`, `BUILD_PLAN.md`; add `ARCHITECTURE.md` only for consequential new technical boundaries, and draft stage cards as each stage nears execution. |
+| Large or regulated system | Above with focused extra evidence, data, risk, security and accessibility contracts **only where justified**. |
 
-**Moderate application/feature:** `PROJECT.md`, `DESIGN.md`, `BUILD_PLAN.md`, stage cards. Add `ARCHITECTURE.md` if nontrivial interfaces, data, security, storage, deployment or infrastructure choices must be defined.
+Do not create files simply because templates exist. Preserve the user's existing project filenames, task IDs and authoritative sources; link instead of duplicating. Documentation is not permission to implement.
 
-**Large or regulated system:** Same core documents, with optional decision records, risk analysis, data contracts, accessibility and security plans where required by the project. Link, don't duplicate.
+## One canonical decision ledger
 
-Use existing filenames/task IDs and source-of-truth rules where the user already has a project. Never silently overwrite accepted artifacts or create a competing task register.
+- From the first meaningful decision, maintain `confirmed / proposed / open / rejected / deferred` in chat; at persistence time write them to **one** document.
+- `PROJECT.md` is the preferred durable ledger; if an existing project register is authoritative, use that. For a single-doc small change without `PROJECT.md`, use `DESIGN.md`'s `## Decisions` table with the same columns.
+- **Exact columns:** `ID | Topic | Status | Decision or question | Rationale / source / date | Affected artifacts`.
+- On a changed decision, retain the ID and a dated history of its prior status/rationale; update the current status to `open` or `proposed` when new evidence challenges it. Do not silently delete rejection or rewrite a previously confirmed decision as if it never existed.
+- If a project later grows a `PROJECT.md`, migrate/link the ledger; do **not** maintain competing copies. Other document summaries are views referencing `D-###`.
 
-## Content rules
+## Consistency
 
-- Explicitly distinguish: **confirmed requirement**, **recommendation**, **assumption**, **open question**, **rejected/deferred item**.
-- Every significant requirement should have a stable ID (e.g. `REQ-001`); stage acceptance criteria reference the relevant IDs.
-- Screen specs must state: purpose, entry points, visible information, allowed actions, state transitions, empty/loading/error states, accessibility and responsive behavior *when relevant*.
-- When external research affected design, record source/date, which pattern was adapted or rejected, evidence strength, and user reaction in existing documents; do not create a redundant research report by default.
-- Link source visuals and indicate their fidelity; a concept image is neither a functional prototype nor verified source behavior.
-- Architecture records must distinguish known existing design from proposed decisions and constraints.
-- Stage cards must preserve dependency order, test scope, required evidence and explicit owner/user approval boundaries.
-- On revision, identify which requirements, screenshots, interfaces and stage cards are affected. Keep an update note; do not erase a historical decision to make the story seem cleaner.
+- Requirements receive stable `REQ-###` IDs and a link to the canonical `D-###` decision. Their approval status is **derived from that decision**, not stored independently in `DESIGN.md`. Only `confirmed` requirements can anchor implementation acceptance tests.
+- Central journeys identify user, start state, action, result and relevant error/empty/cancellation/recovery behavior; deepen only when it affects current decisions.
+- Research impacting design records a source/date and whether behavior was observed, third-party reported, or inferred. A visual concept alone is not evidence of runtime behavior.
+- Technical documents distinguish inspected existing behavior, user reports, proposed design and unresolved choices.
+- Stage cards **follow `assets/STAGE.md`**, including prerequisites, changed surfaces, exclusions, compatibility/rollback, evidence, approval and stop conditions.
+- A mid-stage failure that invalidates earlier design sends the work back to discovery; update affected requirements and *future/proposed* stages, retain the original stage evidence and require user review of revised scope.
+
+## Delivery
+
+- **Authorized existing workspace/repository:** Write files in the established docs structure and make changes reviewable. Preserve accepted documents and avoid unsolicited publication.
+- **No workspace write permission:** Deliver clearly named downloadable files when tooling supports them, otherwise complete ready-to-save Markdown. Be accurate about what was saved.
+- **Still exploring:** Keep the working understanding in chat; offer to persist it only when it helps resumption or a handoff.
 
 Templates: `assets/PROJECT.md`, `assets/DESIGN.md`, `assets/ARCHITECTURE.md`, `assets/BUILD_PLAN.md`, `assets/STAGE.md`.
